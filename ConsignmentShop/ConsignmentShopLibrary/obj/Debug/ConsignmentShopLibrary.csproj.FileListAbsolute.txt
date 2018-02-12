@@ -1,0 +1,5 @@
+c:\users\ad\documents\visual studio 2017\Projects\ConsignmentShop\ConsignmentShopLibrary\bin\Debug\ConsignmentShopLibrary.dll
+c:\users\ad\documents\visual studio 2017\Projects\ConsignmentShop\ConsignmentShopLibrary\bin\Debug\ConsignmentShopLibrary.pdb
+c:\users\ad\documents\visual studio 2017\Projects\ConsignmentShop\ConsignmentShopLibrary\obj\Debug\ConsignmentShopLibrary.dll
+c:\users\ad\documents\visual studio 2017\Projects\ConsignmentShop\ConsignmentShopLibrary\obj\Debug\ConsignmentShopLibrary.pdb
+c:\users\ad\documents\visual studio 2017\Projects\ConsignmentShop\ConsignmentShopLibrary\obj\Debug\ConsignmentShopLibrary.csprojResolveAssemblyReference.cache

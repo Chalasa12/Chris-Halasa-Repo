@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace SnakeGame.Classes
 {
@@ -18,6 +19,7 @@ namespace SnakeGame.Classes
         public static int Points { get; set; }
         public static bool GameOver { get; set; }
         public static Directions Direction { get; set; }
+        public static int HighScore { get; set; }
 
         public GameSettings()
         {
@@ -29,6 +31,18 @@ namespace SnakeGame.Classes
             GameOver = false;
             Direction = Directions.Down;
 
+        }
+
+        public static void SetHighScore()
+        {
+            if (Score >=HighScore)
+            {
+                HighScore = Score;
+                //if (MessageBox.Show("Would you like to record High Score in Leaderboard?", "Leaderboard?", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                //{
+                //    TextBox textBox = new TextBox();
+                //}
+            }
         }
     }
 }

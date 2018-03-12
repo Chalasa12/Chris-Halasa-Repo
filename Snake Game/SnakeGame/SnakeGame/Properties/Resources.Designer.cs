@@ -69,5 +69,15 @@ namespace SnakeGame.Properties {
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap snake_bg_noboarder {
+            get {
+                object obj = ResourceManager.GetObject("snake_bg_noboarder", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
     }
 }

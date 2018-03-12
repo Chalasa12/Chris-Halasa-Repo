@@ -11,3 +11,16 @@ C:\Users\ahalasa\Documents\Chris-Halasa-Repo\Snake Game\SnakeGame\SnakeGame\obj\
 C:\Users\ahalasa\Documents\Chris-Halasa-Repo\Snake Game\SnakeGame\SnakeGame\obj\Debug\SnakeGame.OptionsMenu.resources
 C:\Users\ahalasa\Documents\Chris-Halasa-Repo\Snake Game\SnakeGame\SnakeGame\obj\Debug\SnakeGame.SetScoreMenu.resources
 C:\Users\ahalasa\Documents\Chris-Halasa-Repo\Snake Game\SnakeGame\SnakeGame\obj\Debug\SnakeGame.Leaderboard.resources
+F:\Chris Repo Fixed\Chris-Halasa-Repo\Snake Game\SnakeGame\SnakeGame\bin\Debug\SnakeGame.exe.config
+F:\Chris Repo Fixed\Chris-Halasa-Repo\Snake Game\SnakeGame\SnakeGame\bin\Debug\SnakeGame.exe
+F:\Chris Repo Fixed\Chris-Halasa-Repo\Snake Game\SnakeGame\SnakeGame\bin\Debug\SnakeGame.pdb
+F:\Chris Repo Fixed\Chris-Halasa-Repo\Snake Game\SnakeGame\SnakeGame\obj\Debug\SnakeGame.csprojResolveAssemblyReference.cache
+F:\Chris Repo Fixed\Chris-Halasa-Repo\Snake Game\SnakeGame\SnakeGame\obj\Debug\SnakeGame.OptionsMenu.resources
+F:\Chris Repo Fixed\Chris-Halasa-Repo\Snake Game\SnakeGame\SnakeGame\obj\Debug\SnakeGame.SnakeUI.resources
+F:\Chris Repo Fixed\Chris-Halasa-Repo\Snake Game\SnakeGame\SnakeGame\obj\Debug\SnakeGame.SetScoreMenu.resources
+F:\Chris Repo Fixed\Chris-Halasa-Repo\Snake Game\SnakeGame\SnakeGame\obj\Debug\SnakeGame.Leaderboard.resources
+F:\Chris Repo Fixed\Chris-Halasa-Repo\Snake Game\SnakeGame\SnakeGame\obj\Debug\SnakeGame.Properties.Resources.resources
+F:\Chris Repo Fixed\Chris-Halasa-Repo\Snake Game\SnakeGame\SnakeGame\obj\Debug\SnakeGame.csproj.GenerateResource.Cache
+F:\Chris Repo Fixed\Chris-Halasa-Repo\Snake Game\SnakeGame\SnakeGame\obj\Debug\SnakeGame.csproj.CoreCompileInputs.cache
+F:\Chris Repo Fixed\Chris-Halasa-Repo\Snake Game\SnakeGame\SnakeGame\obj\Debug\SnakeGame.exe
+F:\Chris Repo Fixed\Chris-Halasa-Repo\Snake Game\SnakeGame\SnakeGame\obj\Debug\SnakeGame.pdb

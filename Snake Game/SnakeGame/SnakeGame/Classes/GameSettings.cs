@@ -4,6 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Drawing;
+using SnakeGame;
 
 namespace SnakeGame.Classes
 {
@@ -20,6 +22,7 @@ namespace SnakeGame.Classes
         public static bool GameOver { get; set; }
         public static Directions Direction { get; set; }
         public static int HighScore { get; set; }
+        public IList<Image> BGImages { get; set; }
 
         public GameSettings()
         {
@@ -30,7 +33,12 @@ namespace SnakeGame.Classes
             Points = 100;
             GameOver = false;
             Direction = Directions.Down;
+            BGImages = new List<Image>();
+            Image Grass = Image.FromFile(@"~\Images\Grass2.png");
+            Image Sand = Image.FromFile(@"~\Images\snake_bg.png");
 
+            BGImages.Add(Grass);
+            BGImages.Add(Sand);
         }
 
         public static void SetHighScore()

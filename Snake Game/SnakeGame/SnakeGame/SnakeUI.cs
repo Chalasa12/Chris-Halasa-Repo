@@ -265,16 +265,6 @@ namespace SnakeGame
             StartGame();
         }
 
-        private void contextMenuStrip1_Opened(object sender, EventArgs e)
-        {
-            gameTimer.Stop();
-        }
-
-        private void contextMenuStrip1_Closed(object sender, ToolStripDropDownClosedEventArgs e)
-        {
-            gameTimer.Start();
-        }
-
         private void seeHighscoreToolStripMenuItem_Click(object sender, EventArgs e)
         {
             SeeHighScore();

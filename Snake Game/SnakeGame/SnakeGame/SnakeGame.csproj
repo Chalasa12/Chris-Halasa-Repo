@@ -51,6 +51,11 @@
     <Compile Include="Classes\Snake.cs" />
     <Compile Include="DAL\LeaderboardDAL.cs" />
     <Compile Include="DAL\Person.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="SnakeUI.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -92,6 +97,7 @@
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -111,6 +117,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Images\snake_bg_noboarder.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\Grass.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\Grass2.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

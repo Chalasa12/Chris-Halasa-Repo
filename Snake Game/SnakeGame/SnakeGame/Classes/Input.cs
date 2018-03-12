@@ -20,7 +20,6 @@ namespace SnakeGame.Classes
             {
                 return false;
             }
-
             return (bool)keyTable[key];
         }
 

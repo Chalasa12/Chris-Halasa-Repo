@@ -13,12 +13,12 @@ using SnakeGame.DAL;
 
 namespace SnakeGame
 {
-    public partial class Form3 : Form
+    public partial class Leaderboard : Form
     {
         BindingSource top100binding = new BindingSource();
        
 
-        public Form3()
+        public Leaderboard()
         {
             LeaderboardDAL leaderboard = new LeaderboardDAL();
             List<Person> list = leaderboard.GetTop100();

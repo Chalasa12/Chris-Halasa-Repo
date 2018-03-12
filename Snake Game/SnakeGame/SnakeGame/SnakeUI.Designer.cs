@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SnakeUI));
             this.ScoreLabel = new System.Windows.Forms.Label();
             this.scoreValue = new System.Windows.Forms.Label();
             this.gameTimer = new System.Windows.Forms.Timer(this.components);
@@ -76,7 +77,7 @@
             // gameWindow
             // 
             this.gameWindow.BackColor = System.Drawing.Color.Transparent;
-            this.gameWindow.BackgroundImage = global::SnakeGame.Properties.Resources.snake_bg;
+            this.gameWindow.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("gameWindow.BackgroundImage")));
             this.gameWindow.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.gameWindow.Location = new System.Drawing.Point(15, 68);
             this.gameWindow.Margin = new System.Windows.Forms.Padding(2);
@@ -195,7 +196,7 @@
             this.optionsToolStripMenuItem.Name = "optionsToolStripMenuItem";
             this.optionsToolStripMenuItem.Size = new System.Drawing.Size(235, 30);
             this.optionsToolStripMenuItem.Text = "Options";
-           
+            this.optionsToolStripMenuItem.Click += new System.EventHandler(this.optionsToolStripMenuItem_Click);
             // 
             // exitToolStripMenuItem
             // 
@@ -224,6 +225,7 @@
             this.Name = "SnakeUI";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Snake";
+            this.Load += new System.EventHandler(this.SnakeUI_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);
             this.KeyUp += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyUp);
             ((System.ComponentModel.ISupportInitialize)(this.gameWindow)).EndInit();

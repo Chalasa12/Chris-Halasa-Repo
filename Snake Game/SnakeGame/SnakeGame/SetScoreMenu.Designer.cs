@@ -1,6 +1,6 @@
 ﻿namespace SnakeGame
 {
-    partial class Form2
+    partial class SetScoreMenu
     {
         /// <summary>
         /// Required designer variable.

@@ -77,16 +77,12 @@ namespace SnakeGame
                     food.YPosition = randomPosition.Next(0, maxYPosition);
                     break;
                 }
-
             }
-
-
-
         }
 
         private void UpdateScreen(object sender, EventArgs e)
         {
-            //checks to see if the direction click is possible
+            //checks to see if key is pressed and if the direction click is possible
             if (Input.IsKeyPressed(Keys.Right) && GameSettings.Direction != Directions.Left)
             {
                 GameSettings.Direction = Directions.Right;
@@ -105,7 +101,7 @@ namespace SnakeGame
             }
 
             MovePlayer();
-            gameWindow.Invalidate();
+            gameWindow.Invalidate();//clears and redraws screen so player looks like moving every update
         }
 
         private void gameWindow_Paint(object sender, PaintEventArgs e)
@@ -134,7 +130,7 @@ namespace SnakeGame
                 }
                 else
                 {
-                    ShowMyDialogBox();
+                    ShowScoreMenu();
                     //Application.Exit();
                 }
             }
@@ -163,6 +159,7 @@ namespace SnakeGame
                             break;
                     }
 
+                    
                     int maxXPosition = gameWindow.Size.Width / GameSettings.Width;
                     int maxYPosition = gameWindow.Size.Height / GameSettings.Height;
 
@@ -216,6 +213,26 @@ namespace SnakeGame
             GenerateFood();
         }
 
+        public void SeeHighScore()
+        {
+            string highscore = $"Your High Score is {GameSettings.HighScore.ToString()}";
+            gameTimer.Stop();
+            if (MessageBox.Show(highscore, "High Score", MessageBoxButtons.OK) == DialogResult.OK)
+            {
+                gameTimer.Start();
+            }
+        }
+        public void ShowScoreMenu()
+        {
+            SetScoreMenu enterName = new SetScoreMenu();
+            enterName.Show();
+        }
+        public void ShowTop100()
+        {
+            Leaderboard top100 = new Leaderboard();
+            top100.Show();
+        }
+
 
         private void Form1_KeyDown(object sender, KeyEventArgs e)
         {
@@ -229,7 +246,6 @@ namespace SnakeGame
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
             Application.Exit();
         }
 
@@ -259,18 +275,6 @@ namespace SnakeGame
             gameTimer.Start();
         }
 
-        public void ShowMyDialogBox()
-        {
-            Form2 enterName = new Form2();
-            enterName.Show();
-        }
-
-        public void ShowTop100()
-        {
-            Form3 top100 = new Form3();
-            top100.Show();
-        }
-
         private void seeHighscoreToolStripMenuItem_Click(object sender, EventArgs e)
         {
             SeeHighScore();
@@ -289,7 +293,7 @@ namespace SnakeGame
         private void setScoreToolStripMenuItem_Click(object sender, EventArgs e)
         {
             gameTimer.Stop();
-            ShowMyDialogBox();
+            ShowScoreMenu();
         }
 
         private void seeTop100ToolStripMenuItem_Click(object sender, EventArgs e)
@@ -298,14 +302,20 @@ namespace SnakeGame
             ShowTop100();
         }
 
-        public void SeeHighScore()
+        private void optionsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            string highscore = $"Your High Score is {GameSettings.HighScore.ToString()}";
-            gameTimer.Stop();
-            if (MessageBox.Show(highscore,"High Score", MessageBoxButtons.OK)==DialogResult.OK)
-            {
-                gameTimer.Start();
-            }
+            OptionsMenu option = new OptionsMenu();
+            option.Show();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void SnakeUI_Load(object sender, EventArgs e)
+        {
+            gameWindow.Focus();
         }
     }
 }

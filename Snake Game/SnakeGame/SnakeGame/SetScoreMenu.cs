@@ -12,9 +12,9 @@ using SnakeGame.Classes;
 
 namespace SnakeGame
 {
-    public partial class Form2 : Form
+    public partial class SetScoreMenu : Form
     {
-        public Form2()
+        public SetScoreMenu()
         {
             InitializeComponent();
         }
@@ -54,7 +54,7 @@ namespace SnakeGame
 
         private void button2_Click(object sender, EventArgs e)
         {
-            Form3 form3 = new Form3();
+            Leaderboard form3 = new Leaderboard();
             form3.Show();
    
         }

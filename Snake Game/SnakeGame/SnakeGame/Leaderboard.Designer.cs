@@ -1,6 +1,6 @@
 ﻿namespace SnakeGame
 {
-    partial class Form3
+    partial class Leaderboard
     {
         /// <summary>
         /// Required designer variable.
@@ -39,7 +39,7 @@
             this.top100List.Location = new System.Drawing.Point(35, 120);
             this.top100List.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.top100List.Name = "top100List";
-            this.top100List.Size = new System.Drawing.Size(471, 524);
+            this.top100List.Size = new System.Drawing.Size(481, 524);
             this.top100List.TabIndex = 0;
             this.top100List.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
             // 
@@ -54,15 +54,15 @@
             this.label1.TabIndex = 1;
             this.label1.Text = "Leaderboard Top 100";
             // 
-            // Form3
+            // Leaderboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(593, 676);
+            this.ClientSize = new System.Drawing.Size(550, 675);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.top100List);
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.Name = "Form3";
+            this.Name = "Leaderboard";
             this.Text = "Form3";
             this.ResumeLayout(false);
             this.PerformLayout();

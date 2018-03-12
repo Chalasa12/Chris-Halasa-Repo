@@ -59,11 +59,7 @@ namespace SnakeGame.DAL
                     cmd.Parameters.AddWithValue("@Score", score);
                     cmd.Parameters.AddWithValue("@Date", DateTime.Now);
 
-
-
-
                     cmd.ExecuteNonQuery();
-                   
                 }
             }
             catch (Exception)
@@ -71,7 +67,6 @@ namespace SnakeGame.DAL
 
                 throw;
             }
-            
         }
     }
 }

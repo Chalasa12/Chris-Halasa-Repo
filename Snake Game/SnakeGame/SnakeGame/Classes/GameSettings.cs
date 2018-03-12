@@ -38,10 +38,6 @@ namespace SnakeGame.Classes
             if (Score >=HighScore)
             {
                 HighScore = Score;
-                //if (MessageBox.Show("Would you like to record High Score in Leaderboard?", "Leaderboard?", MessageBoxButtons.YesNo) == DialogResult.Yes)
-                //{
-                //    TextBox textBox = new TextBox();
-                //}
             }
         }
     }

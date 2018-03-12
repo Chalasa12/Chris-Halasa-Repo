@@ -31,7 +31,7 @@ namespace SnakeGame
             string name = textBoxForName.Text;
             if (name=="")
             {
-                name = "Unknown";
+                name ="Unknown";
             }
             if (GameSettings.Score==0)
             {
@@ -61,8 +61,7 @@ namespace SnakeGame
 
         private void Form2_FormClosed(object sender, FormClosedEventArgs e)
         {
-            //SnakeUI snakeUI = new SnakeUI();
-            //snakeUI.StartGame();
+            
         }
     }
 }

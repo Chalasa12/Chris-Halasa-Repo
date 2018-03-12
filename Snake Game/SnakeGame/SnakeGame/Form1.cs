@@ -69,16 +69,14 @@ namespace SnakeGame
             Random randomPosition = new Random();
             food = new Food();
 
-            for (int i = 0; i < snake.SnakeBody.Count; i++)//hopefully will not let it make a food piece where there is a body
+            for (int i = 0; i < snake.SnakeBody.Count; i++)//hopefully will not let it make a food piece where there is a body....doesnt work fml
             {
-                do
+                if (food.XPosition != snake.SnakeBody[i].XPosition && food.YPosition != snake.SnakeBody[i].YPosition)
                 {
                     food.XPosition = randomPosition.Next(0, maxXPosition);
                     food.YPosition = randomPosition.Next(0, maxYPosition);
-                } while (food.XPosition == snake.SnakeBody[i].XPosition && food.YPosition == snake.SnakeBody[i].YPosition);
-
-
-                break;
+                    break;
+                }
 
             }
 
@@ -88,9 +86,7 @@ namespace SnakeGame
 
         private void UpdateScreen(object sender, EventArgs e)
         {
-
             //checks to see if the direction click is possible
-
             if (Input.IsKeyPressed(Keys.Right) && GameSettings.Direction != Directions.Left)
             {
                 GameSettings.Direction = Directions.Right;
@@ -109,9 +105,7 @@ namespace SnakeGame
             }
 
             MovePlayer();
-
             gameWindow.Invalidate();
-
         }
 
         private void gameWindow_Paint(object sender, PaintEventArgs e)
@@ -119,25 +113,21 @@ namespace SnakeGame
             Graphics canvas = e.Graphics;
             if (!GameSettings.GameOver)
             {
-                
                 Brush snakeColor;
                 for (int i = 0; i < snake.SnakeBody.Count; i++)
                 {
                     snakeColor = Brushes.Black;
-
                     //sets color of snake
                     canvas.FillRectangle(snakeColor, new Rectangle(snake.SnakeBody[i].XPosition * GameSettings.Width,
                                                                    snake.SnakeBody[i].YPosition * GameSettings.Height,
                                                                    GameSettings.Width, GameSettings.Height));
                     //sets color of food
                     canvas.FillRectangle(Brushes.Red, new Rectangle(food.XPosition * GameSettings.Width, food.YPosition * GameSettings.Height, GameSettings.Width, GameSettings.Height));
-
                 }
             }
             else
             {
                 string gameOver = $"Game Over!\n\n Your Final Score is: {GameSettings.Score} \n\n Press Retry to play again or Cancel set score";
-
                 if (MessageBox.Show(gameOver, "Play Again?", MessageBoxButtons.RetryCancel) == DialogResult.Retry)
                 {
                     StartGame();
@@ -147,7 +137,6 @@ namespace SnakeGame
                     ShowMyDialogBox();
                     //Application.Exit();
                 }
-
             }
         }
 
@@ -172,9 +161,7 @@ namespace SnakeGame
                         case Directions.Right:
                             snake.SnakeBody[i].XPosition++;
                             break;
-
                     }
-
 
                     int maxXPosition = gameWindow.Size.Width / GameSettings.Width;
                     int maxYPosition = gameWindow.Size.Height / GameSettings.Height;
@@ -227,8 +214,6 @@ namespace SnakeGame
             scoreValue.Text = GameSettings.Score.ToString();
 
             GenerateFood();
-
-
         }
 
 
@@ -241,7 +226,6 @@ namespace SnakeGame
         {
             Input.ChangeState(e.KeyCode, false);
         }
-
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -261,7 +245,6 @@ namespace SnakeGame
 
         private void restartToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
             GameSettings.GameOver = true;
             StartGame();
         }
@@ -279,15 +262,50 @@ namespace SnakeGame
         public void ShowMyDialogBox()
         {
             Form2 enterName = new Form2();
-            
             enterName.Show();
-      
-            
+        }
+
+        public void ShowTop100()
+        {
+            Form3 top100 = new Form3();
+            top100.Show();
         }
 
         private void seeHighscoreToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MessageBox.Show(GameSettings.HighScore.ToString());
+            SeeHighScore();
+        }
+
+        private void startToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            gameTimer.Start();
+        }
+
+        private void pauseToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            gameTimer.Stop();
+        }
+
+        private void setScoreToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            gameTimer.Stop();
+            ShowMyDialogBox();
+        }
+
+        private void seeTop100ToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            gameTimer.Stop();
+            ShowTop100();
+        }
+
+        public void SeeHighScore()
+        {
+            string highscore = $"Your High Score is {GameSettings.HighScore.ToString()}";
+            gameTimer.Stop();
+            if (MessageBox.Show(highscore,"High Score", MessageBoxButtons.OK)==DialogResult.OK)
+            {
+                gameTimer.Start();
+            }
         }
     }
 }

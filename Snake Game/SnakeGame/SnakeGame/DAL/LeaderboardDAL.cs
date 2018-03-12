@@ -10,7 +10,7 @@ namespace SnakeGame.DAL
     public class LeaderboardDAL
     {
         private const string connectionString = @"Data Source=.\sqlexpress;Initial Catalog=SnakeGame;Integrated Security=True";
-        private string top100 = "SELECT TOP 100 * FROM Leaderboards";
+        private string top100 = "SELECT TOP 100 * FROM Leaderboards ORDER BY Score desc";
         private string insertHighScore = "INSERT INTO Leaderboards VALUES (@Name, @Score, @Date)";
 
         public List<Person> GetTop100()

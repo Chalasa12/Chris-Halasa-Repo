@@ -34,11 +34,11 @@ namespace SnakeGame.Classes
             GameOver = false;
             Direction = Directions.Down;
             BGImages = new List<Image>();
-            Image Grass = Image.FromFile(@"~\Images\Grass2.png");
-            Image Sand = Image.FromFile(@"~\Images\snake_bg.png");
+            //Image Grass = Image.FromFile(@"~\Images\Grass2.png");
+            //Image Sand = Image.FromFile(@"~\Images\snake_bg.png");
 
-            BGImages.Add(Grass);
-            BGImages.Add(Sand);
+            //BGImages.Add(Grass);
+            //BGImages.Add(Sand);
         }
 
         public static void SetHighScore()

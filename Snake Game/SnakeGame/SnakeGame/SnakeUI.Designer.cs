@@ -172,7 +172,7 @@
             // gameWindow
             // 
             this.gameWindow.BackColor = System.Drawing.Color.Transparent;
-            this.gameWindow.BackgroundImage = global::SnakeGame.Properties.Resources.Grass2;
+            this.gameWindow.BackgroundImage = global::SnakeGame.Properties.Resources.snake_bg;
             this.gameWindow.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.gameWindow.Location = new System.Drawing.Point(10, 44);
             this.gameWindow.Margin = new System.Windows.Forms.Padding(1);

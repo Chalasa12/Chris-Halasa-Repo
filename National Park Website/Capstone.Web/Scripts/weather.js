@@ -16,18 +16,24 @@ $(document).ready(function () {
                     if ($("#tempvalue").text()=="0") {
                         var highf = url.forecast.simpleforecast.forecastday[i].high.fahrenheit;
                         var lowf = url.forecast.simpleforecast.forecastday[i].low.fahrenheit;
+                        var conditions = url.forecast.simpleforecast.forecastday[0].conditions
                         $("#temphigh" + i).html(highf + "\xB0F");
                         $("#templow" + i).html(lowf + "\xB0F");
+                        $("#condition").html(conditions);
                         console.log(url.forecast.simpleforecast.forecastday[i].high.fahrenheit);
                         console.log(url.forecast.simpleforecast.forecastday[i].low.fahrenheit);
+                        console.log(url.forecast.simpleforecast.forecastday[i].conditions);
                     }
                     else if ($("#tempvalue").text() == "1") {
                         var highc = url.forecast.simpleforecast.forecastday[i].high.celsius;
                         var lowc = url.forecast.simpleforecast.forecastday[i].low.celsius;
+                        var conditions = url.forecast.simpleforecast.forecastday[0].conditions
                         $("#temphigh" + i).html(highc + "\xB0C");
                         $("#templow" + i).html(lowc + "\xB0C");
+                        $("#condition").html(conditions);
                         console.log(url.forecast.simpleforecast.forecastday[i].high.celsius);
                         console.log(url.forecast.simpleforecast.forecastday[i].low.celsius);
+                        console.log(url.forecast.simpleforecast.forecastday[i].conditions);
 
                     } 
                 }

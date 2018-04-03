@@ -27,7 +27,7 @@
                 <b>Acerage:</b> @Model.Acreage.ToString("#,##0")
                 <b>Elevation:</b> @Model.Elevation.ToString("#,##0") ft
                 <b>Miles of Trail:</b> @Model.MilesOfTrail.ToString("#,##0")
-                <b>No. Of Campsites:</b> @Model.NumberOfCampsites
+                <b>No. Of Campsites:</b> @Model.NumberOfCampsites.ToString("#,##0")
                 <b>Annual Visitors:</b> @Model.AnnualVisitorCount.ToString("#,##0")
                 <b>No. of Animal Species:</b> @Model.NumberOfAnimalSpecies.ToString("#,##0")
                 <b>Entry Fee:</b> $@Model.EntryFee
@@ -89,7 +89,7 @@
                                 <td>
                                     <img src="~/Content/img/weather/@weatherImg" alt="Weather Image" /><br />
                                     High: <b id="@tempHighId" class="Temphigh">@item.High°F</b> Low: <b id="@tempLowId" class="Templow">@item.Low°F</b><br />
-                                    @item.Forecast.Substring(0, 1).ToUpper()@item.Forecast.Substring(1) <br />
+                                   <span id="condition">>@item.Forecast.Substring(0, 1).ToUpper()@item.Forecast.Substring(1)</span><br />
                                     <span style="padding-left:10px">@item.WeatherRecommendation(item.Forecast, item.High, item.Low)</span>
                                 </td>
                             }
@@ -109,7 +109,7 @@
 
         </div>
         <div class="col-md-12">
-            <p>
+            <span>
                 @Html.Label("Fahrenheit")
                 @Html.RadioButtonFor(m => m.TempValue, 0)
                 @Html.Label("Celsius")
@@ -130,9 +130,10 @@
                 @Html.HiddenFor(m => m.State)
                 @Html.HiddenFor(m => m.YearFounded)
                 @Html.HiddenFor(m => m.City)
-                <button id="submits" class="btn">Submit</button><span id="city" hidden>@Model.City</span><span id="tempvalue" hidden>@Model.TempValue</span>
-                @Html.ActionLink("Back to List", "Index")
-            </p>
+                <button id="submits" class="btn-primary">Submit</button><span id="city" hidden>@Model.City</span><span id="tempvalue" hidden>@Model.TempValue</span><br />
+
+            </span>
+            @Html.ActionLink("Back to List", "Index")
         </div>
     </div>
 }

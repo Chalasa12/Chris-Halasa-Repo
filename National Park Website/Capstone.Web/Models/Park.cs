@@ -23,6 +23,7 @@ namespace Capstone.Web.Models
         public string ParkDescription { get; set; }
         public double EntryFee { get; set; }
         public int NumberOfAnimalSpecies { get; set; }
+        public string City { get; set; }
         public int TempValue { get; set ; }
 
         public double CelsiusConversion(int tempInF)

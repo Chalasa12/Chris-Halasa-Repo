@@ -86,7 +86,8 @@ namespace Capstone.Web.DAL
                             QuoteSource = Convert.ToString(reader["inspirationalQuoteSource"]),
                             ParkDescription = Convert.ToString(reader["parkDescription"]),
                             EntryFee = Convert.ToInt32(reader["entryFee"]),
-                            NumberOfAnimalSpecies = Convert.ToInt32(reader["numberOfAnimalSpecies"])
+                            NumberOfAnimalSpecies = Convert.ToInt32(reader["numberOfAnimalSpecies"]),
+                            City = Convert.ToString(reader["city"])
                         };
 
                         result = p;

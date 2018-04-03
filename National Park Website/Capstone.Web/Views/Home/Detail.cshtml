@@ -8,9 +8,9 @@
     string parkimg = $"{Model.ParkCode}.jpg";
     int count = 0;
 }
+<script src="~/Scripts/weather.js"></script>
 
-
-@using (Html.BeginForm("Detail", "Home", FormMethod.Post))
+@using (Html.BeginForm("Detail", "Home", FormMethod.Post, new { id = "detailpage" }))
 {
     <div class="container" style="margin-right:auto">
         <div class="row">
@@ -21,7 +21,7 @@
                 <pre class="DetailInfo">
        
                 <b style="font-size:24px">@Model.ParkName </b>
-                  @Model.State | Year Founded: @Model.YearFounded 
+                <span id="state">@Model.State</span> | Year Founded: @Model.YearFounded 
 
                 <b>Climate:</b> @Model.Climate
                 <b>Acerage:</b> @Model.Acreage.ToString("#,##0")
@@ -57,15 +57,17 @@
                     @foreach (Weather item in weatherList)
                     {
                         string weatherImg = $"{item.Forecast}.png";
+                        string tempHighId = $"temphigh{count}";
+                        string tempLowId = $"templow{count}";
                         if (Model.TempValue == 1)
                         {
                             if (count == 0)
                             {
                                 <td>
                                     <img src="~/Content/img/weather/@weatherImg" alt="Weather Image" /><br />
-                                    High: <b class="Temphigh">
+                                    High: <b id="@tempHighId" class="Temphigh">
                                         @Model.CelsiusConversion(item.High)°C
-                                    </b> Low: <b class="Templow">@Model.CelsiusConversion(item.Low)°C</b><br />
+                                    </b> Low: <b id="@tempLowId" class="Templow">@Model.CelsiusConversion(item.Low)°C</b><br />
                                     @item.Forecast.Substring(0, 1).ToUpper()@item.Forecast.Substring(1) <br />
                                     <span style="padding-left:10px">@item.WeatherRecommendation(item.Forecast, item.High, item.Low)</span>
                                 </td>
@@ -75,7 +77,7 @@
                                 <td>
                                     <img class="weatherImgSmaller" src="~/Content/img/weather/@weatherImg" alt="Weather Image" />
                                     <br />
-                                    High: <b class="Temphigh">@Model.CelsiusConversion(item.High)°C</b> Low: <b class="Templow">@Model.CelsiusConversion(item.Low)°C</b><br />
+                                    High: <b id="@tempHighId" class="Temphigh">@Model.CelsiusConversion(item.High)°C</b> Low: <b id="@tempLowId" class="Templow">@Model.CelsiusConversion(item.Low)°C</b><br />
                                 </td>
                             }
                             count++;
@@ -86,7 +88,7 @@
                             {
                                 <td>
                                     <img src="~/Content/img/weather/@weatherImg" alt="Weather Image" /><br />
-                                    High: <b class="Temphigh">@item.High°F</b> Low: <b class="Templow">@item.Low°F</b><br />
+                                    High: <b id="@tempHighId" class="Temphigh">@item.High°F</b> Low: <b id="@tempLowId" class="Templow">@item.Low°F</b><br />
                                     @item.Forecast.Substring(0, 1).ToUpper()@item.Forecast.Substring(1) <br />
                                     <span style="padding-left:10px">@item.WeatherRecommendation(item.Forecast, item.High, item.Low)</span>
                                 </td>
@@ -96,7 +98,7 @@
                                 <td>
                                     <img class="weatherImgSmaller" src="~/Content/img/weather/@weatherImg" alt="Weather Image" />
                                     <br />
-                                    High: <b class="Temphigh">@item.High°F</b> Low:<b class="Templow">@item.Low°F</b><br />
+                                    High: <b id="@tempHighId" class="Temphigh">@item.High°F</b> Low:<b id="@tempLowId" class="Templow">@item.Low°F</b><br />
                                 </td>
                             }
                             count++;
@@ -127,7 +129,8 @@
                 @Html.HiddenFor(m => m.QuoteSource)
                 @Html.HiddenFor(m => m.State)
                 @Html.HiddenFor(m => m.YearFounded)
-                <button class="btn">Submit</button>
+                @Html.HiddenFor(m => m.City)
+                <button id="submits" class="btn">Submit</button><span id="city" hidden>@Model.City</span><span id="tempvalue" hidden>@Model.TempValue</span>
                 @Html.ActionLink("Back to List", "Index")
             </p>
         </div>

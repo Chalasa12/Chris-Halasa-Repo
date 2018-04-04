@@ -179,7 +179,7 @@ namespace SnakeGame
                     }
 
                     //detect collision  with food
-                    if (snake.SnakeBody[0].XPosition == food.XPosition && snake.SnakeBody[i].YPosition == food.YPosition)
+                    if (snake.SnakeBody[0].XPosition == food.XPosition && snake.SnakeBody[0].YPosition == food.YPosition)
                     {
                         Eat();
                     }
@@ -294,8 +294,8 @@ namespace SnakeGame
 
         private void optionsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            OptionsMenu option = new OptionsMenu();
-            option.Show();
+            //OptionsMenu option = new OptionsMenu();
+            //option.Show();
         }
 
         private void button1_Click(object sender, EventArgs e)

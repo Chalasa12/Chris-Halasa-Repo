@@ -1,0 +1,66 @@
+﻿@model Capstone.Web.Models.Users
+@{
+
+    ViewBag.Title = "Road Janitor - Register";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<script src="~/Scripts/Registration.Login.Validation.js"></script>
+
+<h2 class="headersmall">Register for an Account </h2>
+
+
+@using (Html.BeginForm("Register", "User", FormMethod.Post, new { id = "RegisterForm" }))
+{
+    <h4></h4>
+
+    <table class="table registertable" style="margin:auto; width:auto" >
+
+        <tr>
+            <td class="tableTdregisterpage">@Html.Label("First Name")</td>
+            <td>@Html.TextBoxFor(m => m.FirstName, new { @class = "form-control" }) @Html.ValidationMessageFor(m => m.FirstName)</td>
+            
+        </tr>
+        <tr>
+            <td class="tableTdregisterpage">@Html.Label("Last Name")</td>
+            <td> @Html.TextBoxFor(m => m.LastName, new { @class = "form-control" }) @Html.ValidationMessageFor(m => m.LastName)</td>
+         
+        </tr>
+        <tr>
+            <td class="tableTdregisterpage"> @Html.Label("Username")</td>
+            <td>@Html.TextBoxFor(m => m.Username, new { @class = "form-control" })@Html.ValidationMessageFor(m => m.Username)</td>
+           
+        </tr>
+        <tr>
+            <td class="tableTdregisterpage"> @Html.Label("Password")</td>
+            <td>@Html.PasswordFor(m => m.Password, new { @class = "form-control" })@Html.ValidationMessageFor(m => m.Password)</td>
+            
+        </tr>
+        <tr>
+            <td class="tableTdregisterpage"> @Html.Label("Confirm Password")</td>
+            <td> @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control" })@Html.ValidationMessageFor(m => m.ConfirmPassword)</td>
+          
+
+        </tr>
+        <tr>
+            <td class="tableTdregisterpage">@Html.Label("Email")</td>
+            <td> @Html.TextBoxFor(m => m.Email, new { @class = "form-control" }) @Html.ValidationMessageFor(m => m.Email)</td>
+            
+        </tr>
+        <tr>
+            <td class="tableTdregisterpage"> @Html.Label("Confirm Email")</td>
+            <td>@Html.TextBoxFor(m => m.ConfirmEmail, new { @class = "form-control" }) @Html.ValidationMessageFor(m => m.ConfirmEmail)</td>
+            
+        </tr>
+        <tr>
+            <td></td>
+            <td><button type="submit" style="padding-left:80px;padding-right:80px; margin-bottom:15px;" class="btn btn-primary">Register</button></td>
+        </tr>
+
+
+
+    </table>
+   
+
+
+}

@@ -1,0 +1,155 @@
+﻿@font-face {
+    font-family: 'Schilderwald alt';
+    src: url('Fonts/Schilderwald alt.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'Schilderwald';
+    src: url('Fonts/Schilderwald.ttf') format('truetype');
+}
+
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background-image: url('Images/marc-olivier-jodoin-502572-unsplash.jpg');
+    height: 400px;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    font-family: sans-serif;
+}
+/*.form-control{
+    height:15px;
+}*/
+
+.imgsize {
+    width:200px !important;
+    height: 200px;
+    margin-left:50px;
+    float: left;
+}
+
+.navbar a:hover {
+    background-color: #000000;
+    color: black;
+        }
+
+
+
+#map {
+    height: 400px;
+    width: 90%;
+    margin: auto;
+
+}
+/* Optional: Makes the sample page fill the window. */
+/*html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}*/
+
+#buttons {
+    margin-top: 10px;
+}
+
+#wrapper {
+    margin: 15px;
+
+}
+
+.tablespace {
+    padding-right: 1em;
+}
+
+td {
+    text-align: center;
+}
+.tableTdregisterpage{
+    text-align:left;
+}
+.registertable td {
+    border: none !important;
+    width: auto;
+    margin: auto;
+}
+.loginforms{
+    width:auto;
+}
+.header {
+    color: white;
+    font-size:90px;
+    font-family: 'Schilderwald alt';
+    padding-top:5%;
+}
+.layoutheaderdiv {
+    height: 300px;
+    text-align: center;
+    background: rgba(0,0,0,0.5);
+
+}
+
+.headersmall {
+    padding-top: 10px;
+    font-family: sans-serif;
+    font-size: 35px;
+}
+.claimnumber{
+    font-size:24px;
+    padding-top:30px;
+}
+section {
+    clear: both;
+    display: block;
+    margin: 20px auto;
+    /*vertical-align: top;*/
+    text-align: center;
+    min-height: 450px;
+    max-height: 2000px;
+    background: rgba(0,0,0,0.8);
+    border-radius: 7px;
+    overflow: auto;
+    color: lightgray;
+    font-family: sans-serif;
+}
+.divcenter {
+    padding-top:100px;
+}
+.indexp{
+    font-size:20px;
+    margin: 4%
+    
+}
+.viewbutton{
+    margin:10px;
+
+}
+.image-blurred-edge {
+    background-image: url('Images/mission3.png');
+    width: 450px;
+    height: 233px;
+    /* you need to match the shadow color to your background or image border for the desired effect*/
+
+    float: left;
+}
+#potholeImage{
+    border-radius: 5px;
+    width: 350px;
+    border-style: solid;
+    border-width: 5px;
+}
+
+#potholeImageContainer{
+    padding-left: 65px;
+}
+
+.singlePotholeDetails{
+    text-align:left;
+    font-size: 20px;
+    padding-left: 100px;
+    padding-top: 30px;
+}
+

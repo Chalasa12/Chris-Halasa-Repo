@@ -1,0 +1,32 @@
+﻿
+@{
+    ViewBag.Title = "Road Janitor - Login";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@using Capstone.Web.Models
+@model LoginModel
+
+<script src="~/Scripts/Registration.Login.Validation.js"></script>
+
+<h2>Login</h2>
+
+@using (Html.BeginForm("Login", "User", FormMethod.Post, new { id = "LoginForm" }))
+{
+    <table class="table registertable" style="width:auto; margin:auto">
+        <tr>
+            <td> @Html.LabelFor(m => m.Username)</td>
+            <td>@Html.TextBoxFor(m => m.Username, new { @class = "form-control", style = "width:auto; margin:auto", placeholder = "Username" }) @Html.ValidationMessageFor(m => m.Username)  @Html.ValidationMessage("invalid-user")</td>
+           
+        </tr>
+        <tr>
+            <td>@Html.LabelFor(m => m.Password)</td>
+            <td>@Html.PasswordFor(m => m.Password, new { @class = "form-control", style = "width:auto; margin:auto", placeholder = "Password" })   @Html.ValidationMessageFor(m => m.Password)  @Html.ValidationMessage("invalid-password")</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><button type="submit" style="padding-right:90px;padding-left:90px;" class="btn btn-primary">Login</button></td>
+        </tr>
+        </table>
+        
+       
+    }

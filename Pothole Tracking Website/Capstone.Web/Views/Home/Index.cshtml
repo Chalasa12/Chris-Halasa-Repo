@@ -1,0 +1,55 @@
+﻿
+@{
+    ViewBag.Title = "Road Janitor - Report a Pothole!";
+}
+@using Capstone.Web.Models;
+
+@model Pothole
+<script src="~/Scripts/main.js"></script>
+<script src="~/Scripts/manualEntry.js"></script>
+
+<h2 class="headersmall">Report a Pothole</h2>
+<div>
+    @using (Html.BeginForm("DetailHole", "Home", FormMethod.Post))
+    {
+   
+<p>Click report pothole to use current location, click a location on the map, or type an address in the search bar below:
+    </p>
+       
+        @Html.HiddenFor(m => m.Latitude)
+        @Html.HiddenFor(m => m.Longitude)
+        @Html.HiddenFor(m => m.DateReported, DateTime.UtcNow.Date);
+        <div class="row" style="margin:auto">
+            
+            <div id="reportSeverity" class="col-sm-3; offset-4">
+                @Html.DropDownListFor(m => m.Severity, Pothole.SeverityLevels, new { @class = "custom-select" })
+            </div>
+
+            <div class="col-sm-3">
+                <button id="reportBtn" class="btn btn-danger" style="white-space: normal; padding-left:40px;padding-right:40px">Report Pothole</button>
+            </div>
+            
+        </div>
+    }
+
+    <div class="row" style="margin: 5px">
+        <div class=""></div>
+        <div class="col-4 offset-5">
+          @*  <a id="manualButton" class="btn btn-danger" @*href="/Home/ManualPotHoleEntry" style="white-space: normal; margin:5px">Report a pothole at a specific address</a>*@
+        </div>
+        <div id="content"></div>
+    </div>
+
+</div>
+
+
+<div id="wrapper">
+    <div id="map"></div>
+    <input id="search-box" class="controls form-control" style="width:auto;margin-top:10px;" type="text" placeholder="Search" />
+    <div id="lat"></div>
+</div>
+<script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBugEcO0-7dk62GbFYyVE2tNfTgmPjUpGs&libraries=places&callback=initMap">
+</script>
+
+<br />

@@ -1,0 +1,98 @@
+﻿@using Capstone.Web.Models
+@model Pothole
+@{
+    ViewBag.Title = "Road Janitor|Update Pothole";
+}
+
+
+<script src="~/Scripts/Detailedmap.js"></script>
+<script>
+    $(document).ready(function () {
+        $('.datepicker').datepicker({
+            format: 'mm/dd/yyyy',
+            startDate: '-3d',
+            autoclose: true
+
+        });
+    });
+</script>
+<h1>Selected Pothole: ID @Model.PotholeID</h1>
+@using (Html.BeginForm("UpdatePothole", "Home", FormMethod.Post))
+{
+    <p><span class="tablespace">Latitude:</span><span id="lat">@Model.Latitude</span> <span class="tablespace">Longitude: </span><span id="lng">@Model.Longitude</span></p>
+    <div id="wrapper">
+        <div id="map"></div>
+    </div>
+    <table class="table">
+        <tr>
+            <th>Current Severity</th>
+            <th>Update Severity</th>
+            <th>Current Status</th>
+            <th>Update Status</th>
+            <th>Date Reported</th>
+            <th>Inspection Date</th>
+            @{if (Model.InspectDate == null)
+                {
+                    <th></th>
+                }
+                else
+                {
+                    <th>Repair Date</th>
+                    <th></th>
+                }
+            }
+        </tr>
+        <tr>
+            <td>@Model.ReturnSeverity(Model.Severity)</td>
+            <td>@Html.DropDownListFor(m => m.Severity, Pothole.SeverityLevels, new { @class = "custom-select mr-sm-2" })</td>
+            <td>@Model.Status</td>
+            <td>@Html.DropDownListFor(m => m.Status, Pothole.StatusUpdate, new { @class = "custom-select mr-sm-2" })</td>
+            <td>@Model.DateReported.ToShortDateString()</td>
+
+            @{ if (Model.InspectDate != null && Model.RepairDate != null)
+                {
+                    <td>@Model.InspectDate.Value.ToShortDateString()</td>
+                    @Html.HiddenFor(m => Model.InspectDate);
+                    <td>@Model.RepairDate.Value.ToShortDateString()</td>
+                    @Html.HiddenFor(m => m.RepairDate);
+                }
+                else if (Model.InspectDate == null)
+                {
+                    <td>
+                        <div class="input-group date" data-provide="datepicker">
+                            @Html.TextBoxFor(m => m.InspectDate, new { @class = "form-control" })
+                            <div class="input-group-addon">
+                                
+                            </div>
+                        </div>
+                    </td>
+                }
+                else if (Model.InspectDate != null && Model.RepairDate == null)
+                {
+
+                    <td>@Model.InspectDate.Value.ToShortDateString()</td>
+                    <td>
+                        <div class="input-group date" data-provide="datepicker">
+                            @Html.TextBoxFor(m => m.RepairDate, new { @class = "form-control" })
+                            <div class="input-group-addon">
+                                @*<i class="fa fa-calendar-check-o"></i>*@
+                            </div>
+                        </div>
+                    </td>
+                    @Html.HiddenFor(m => Model.InspectDate);
+                }
+
+
+            }
+
+            <td><button class="btn btn-primary">Update</button></td>
+        </tr>
+    </table>
+    @Html.HiddenFor(m => m.PotholeID);
+    @Html.HiddenFor(m => m.Latitude);
+    @Html.HiddenFor(m => m.Longitude);
+    @Html.HiddenFor(m => m.DateReported);
+
+
+}
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBSatSYUL3YwnEgUtqsIpU1Cd-mR9OT148&callback=initMap"></script>

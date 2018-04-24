@@ -1,0 +1,76 @@
+﻿
+
+@using Capstone.Web.Controllers;
+@{string username = (string)Session["UsernameKey"];
+
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>@ViewBag.Title</title>
+    <link rel="stylesheet" type="text/css" href="~/Content/CSS_STYLE_SHEET.css">
+    <script src="~/Scripts/jquery-3.1.1.min.js"></script>
+    @*<script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>*@
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/css/bootstrap-datepicker.css" />
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <link href="~/Content/PagedList.css" rel="stylesheet" />
+</head>
+<body>
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.bundle.min.js" integrity="sha384-lZmvU/TzxoIQIOD9yQDEpvxp6wEU32Fy0ckUgOH4EIlMOCdR823rg4+3gWRwnX1M" crossorigin="anonymous"></script>
+    <div class="container-fluid">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+            <a class="navbar-brand" href="#">Road Janitor</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <div class="navbar-nav mr-auto" id="navbaractive">
+
+                    <a class="nav-item nav-link " href="~/Home/Index">Report Pothole <span class="sr-only">(current)</span></a>
+                    <a class="nav-item nav-link" href="~/Home/ViewPotholes">View Reported Potholes</a>
+                    @if (Session["isEmployee"] == null)
+                    {
+
+                    }
+                    else if ((int)Session["isEmployee"] == 1)
+                    {
+                        <a class="nav-item nav-link" href="~/Home/ViewAllClaims">View Damage Claims</a>
+                    }
+                </div>
+                <div class="navbar-nav ml-auto">
+                    @if (Session["UsernameKey"] != null)
+                    {
+                        <a class="nav-item nav-link" href="~/Home/AboutUs">About Us</a>
+                        <a class="nav-item nav-link" href="#userpage">Welcome @username!</a>
+                        <a class="nav-item nav-link" href="~/User/LogOut">Log Out | @username</a>
+                    }
+                    else
+                    {
+                        <a class="nav-item nav-link" href="~/Home/AboutUs">About Us</a>
+                        <a class="nav-item nav-link" href="~/User/Login">Login</a>
+                        <a class="nav-item nav-link" href="~/User/Register">Register</a>
+                    }
+                </div>
+            </div>
+        </nav>
+    </div>
+    <div class="container-fluid">
+        <div class="layoutheaderdiv">
+            @*<img class="imgsize" src="~/Content/Images/officialogo.png" />*@
+            <h1 class="header">ROAD JANITOR</h1>
+        </div>
+    </div>
+    <section class="container">
+        @RenderBody()
+    </section>
+</body>
+
+</html>

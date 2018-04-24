@@ -1,0 +1,36 @@
+﻿
+    @using Capstone.Web.Models
+    @using PagedList.Mvc
+    @model PagedList.IPagedList<DamageClaimModel>
+
+<h1 class="headersmall">Damage Claims</h1>
+<table class="table">
+    <tr>
+        <th>Claim ID</th>
+        <th>Pothole ID</th>
+        <th>Claim Status</th>
+        <th>Estimated Cost</th>
+        <th>Description</th>
+        <th>Date Reported</th>
+
+    </tr>
+
+    @foreach (var claim in Model)
+    {
+
+        <tr>
+            <td>@claim.Claim_ID</td>
+            <td>@claim.Pothole_ID</td>
+            <td>@claim.Status</td>
+            <td>$@claim.Estimated_cost</td>
+            <td>@claim.Description</td>
+            <td>@claim.SubmissionDate.ToShortDateString() </td>
+        </tr>
+    }
+
+</table>
+<div class="pagination">
+    Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber)
+    of @Model.PageCount   @Html.PagedListPager(Model, page => Url.Action("ViewClaims", new { page }))
+</div>
+
